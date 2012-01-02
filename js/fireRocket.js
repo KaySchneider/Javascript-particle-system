@@ -51,6 +51,9 @@ fireRocket.prototype.getRandomOperator = function ( ) {
     } 
 }
 
+/**
+ * returns an random color
+ */
 fireRocket.prototype.getColorParticle = function (particle) {
     var op =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
    
