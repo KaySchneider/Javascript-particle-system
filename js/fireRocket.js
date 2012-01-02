@@ -67,7 +67,7 @@ fireRocket.prototype.getColorParticle = function (particle) {
  */
 fireRocket.prototype.createNewParticle = function () {
     particle = new particel();
-    particle.setLifetime(Math.floor(Math.random() * (20 - 5 + 1)) + 5);
+    particle.setLifetime(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
     particle.setPosition((this.r*Math.cos(this.startAlpha) ) +  this.startPositionX, (this.r*Math.sin(this.startAlpha ) ) + this.startPositionY);
     particle.setAlpha(this.startAlpha);
     particle.setRadius(this.r);
