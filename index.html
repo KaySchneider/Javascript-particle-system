@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/canvasPainter.js" type="text/javascript"></script>
+        <script src="js/particel.js" type="text/javascript"></script>
+        <script src="js/fireRocket.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <canvas id="silvester" width="800" height="800"></canvas>
+        <div>The silvester late night project</div>
+        <script type="text/javascript">
+            function drawShape(){
+                var canvas = document.getElementById('silvester');
+                if (canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.moveTo(75,40);
+                    ctx.bezierCurveTo(75,37,70,25,50,25);
+                    ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+                    ctx.bezierCurveTo(20,80,40,102,75,120);
+                    ctx.bezierCurveTo(110,102,130,80,130,62.5);
+                    ctx.bezierCurveTo(130,62.5,130,25,100,25);
+                    ctx.bezierCurveTo(85,25,75,37,75,40);
+                    ctx.fill();
+                } 
+            }
+            
+            var painter = new canvasPainter();
+            function paintIntervalHelper () {
+                painter.writeInfo();
+            }
+           
+            function rocketHelper () {
+                fire = new fireRocket();
+                fire.startRocket();
+            }
+           
+            window.setInterval(paintIntervalHelper, 100);
+            window.setInterval(rocketHelper, 1200);
+  
+        
+            for(i = 0; i <= 10; i++) {
+                fire = new fireRocket();
+                fire.startRocket();
+            }
+        
+        </script>
+    </body>
+</html>
