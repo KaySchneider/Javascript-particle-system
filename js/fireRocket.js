@@ -3,7 +3,7 @@
  * one rocket on the cloud!
  */
 var fireRocket = function () {
-    this.particlesAnz = 800;
+    this.particlesAnz = 3200;
     this.i = 0;
     this.color = this.getRandomColor();
     this.particleObj = new Array();
@@ -18,10 +18,10 @@ var fireRocket = function () {
  *
  */
 fireRocket.prototype.getRandomColor = function () {
-                var colors = new Array('red', 'purple','silver','yellow', 'pink', 'blue', 'white');
-                max = colors.length;
-                var op =  Math.floor(Math.random() * (max - 0 + 1)) + 0;
-                return colors[op];
+    var colors = new Array('red', 'purple','silver','yellow', 'pink', 'blue', 'white');
+    max = colors.length;
+    var op =  Math.floor(Math.random() * (max - 0 + 1)) + 0;
+    return colors[op];
 }
 
 
@@ -51,6 +51,16 @@ fireRocket.prototype.getRandomOperator = function ( ) {
     } 
 }
 
+fireRocket.prototype.getColorParticle = function (particle) {
+    var op =  Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+   
+    if(op == 0 || op == 2) {
+        return this.color;
+    } 
+    if(op == 1) {
+        return "#E2FF00";
+    } 
+}
 /**
  * creates an new particle of the rocket 
  * and sets some random params
@@ -69,9 +79,15 @@ fireRocket.prototype.createNewParticle = function () {
     argument.x= this.getRandomOperator();
     argument.y = this.getRandomOperator();
     particle.setMultiplicator( argument );
-    particle.setColor(this.color);
+    var particelColor = this.getColorParticle(particle);
+    
+    particle.setColor(particelColor);
     particle.setSpeed( Math.random() * (10 - 2 + 1) + 2);
     particle.setSpeedX( Math.random() * (10 - 2 + 1) + 2  );
+    if(particelColor == '#E2FF00') {
+       particle.setLifetime(3);
+       particle.setSpeed(1);
+    }
     this.registerParticle(particle);
 
 }
@@ -87,5 +103,5 @@ fireRocket.prototype.sendToPaint = function () {
  * register the particle here in the rocket
  */
 fireRocket.prototype.registerParticle = function (particleObj) {
-   this.particleObj.push(particleObj);
+    this.particleObj.push(particleObj);
 }

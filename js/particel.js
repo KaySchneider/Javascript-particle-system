@@ -7,7 +7,7 @@ var particel = function () {
     this.directionS; //the direction in grad
     this.color; // here is the color of this pixel
     this.lifetime; //the lifetime in seconds of this particel
-    this.size = 2;
+    this.size = 1;
     this.newElementsPerRound;
     this.speedx;
     this.multiplikatorX;

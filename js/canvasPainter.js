@@ -1,4 +1,5 @@
 var canvasPainter = function () {
+    //this are the objects wich will be paint on the canvas
     this.objects = new Array(); //save all the objects in this array
     this.canvas = null;
             
@@ -8,12 +9,9 @@ var canvasPainter = function () {
  * register an large type of arrayset wich includes paintable objects
  */
 canvasPainter.prototype.registerSet = function (particelObjSets) {
-    // 
-    // console.log(this.objects, typeof this.objects);
     var concatHelper = this.objects;
     concatResult = concatHelper.concat(particelObjSets);
     this.objects = concatResult;
-            
 }
    
 
